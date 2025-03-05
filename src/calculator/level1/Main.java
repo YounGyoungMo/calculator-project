@@ -5,9 +5,12 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
+        // Scanner 객체 생성
         Scanner scanner = new Scanner(System.in);
+        // exit을 입력하면 빠져나오는 무한 루프 생성
         while(true) {
             System.out.println("종료하시려면 exit, 계속하시려면 아무거나 입력해주세요");
+            // Scanner 객체를 활용하여 isExit에 입력된 값 저장
             String isExit = scanner.next();
 //            Lv1 계산기 과제 해결중 트러블 슈팅2
 //            계산기 루프중 처음에는 System.out.println("종료하시려면 exit, 계속하시려면 아무거나 입력해주세요");
@@ -18,10 +21,13 @@ public class Main {
 //            앞의 문제와 동일한 문제임에도 불구하고 같은 실수를 반복하게 된 원인:
 //            반복문으로 인해 isExit에 계속해서 입력된 문자가 저장되는 것을 생각하지 못했고,
 //            앞의 문제에서는 오류가 직관적으로 발생하여 웹서핑을 통해 해결할 수 있었지만 이번에는 명시적인 오류가 발생하지 않아 미리 알 수 없었다.
+
+            // 입력된 값이 "exit"인지 확인하고 일치하면 반복문 빠져나옴
             if (isExit.equals("exit")) {
                 break;
             }
 
+            // num1, operator, num2 변수에 각각 입력된 값 저장
             System.out.print("num1 입력 : ");
             int num1 = scanner.nextInt();
             System.out.print("기호 입력 : ");
@@ -39,6 +45,8 @@ public class Main {
 //        해결 방법: 버퍼에 입력된 문자열을 개행 문자까지 다 가져오는 nextLine() 대신 단어만 읽는 next()를 사용하여 해결함.
             System.out.print("num2 입력 : ");
             int num2 = scanner.nextInt();
+
+            // 입력된 연산자에 따라 연산이 달라지는 switch-case문 작성
             switch (operator) {
                 case '+': {
                     int result = num1 + num2;
@@ -64,6 +72,7 @@ public class Main {
                     System.out.println("result = " + result);
                     break;
                 }
+                // 이 외의 연산 기호가 입력되었을 경우 예외 처리
                 default :
                     System.out.println("유효하지 않은 연산 기호입니다.");
             }
